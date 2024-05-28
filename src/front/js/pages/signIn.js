@@ -6,8 +6,6 @@ import {
   Typography,
   Button,
   TextField,
-  FormControlLabel,
-  Checkbox,
   Box,
   Container,
   CssBaseline,
@@ -60,18 +58,15 @@ function SignIn() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '80vh' }}>
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-start',
+            alignItems: 'flex-start', // Align items to the start (left)
           }}
         >
-        <br></br>
-        <br></br>
-
-          <Typography component="h1" variant="h4" sx={{ mt: 1, textAlign: 'left' }}>
+          <Typography component="h1" variant="h4" sx={{ mt: 1 }}>
             Sign in
           </Typography>
           <Typography component="h1" variant="body1" sx={{ mt: 1 }}>
@@ -97,10 +92,6 @@ function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
             />
             <Button
               type="submit"

@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  CssBaseline,
+  TextField,
+  Grid,
+  Box,
+  Typography,
+  Container,
+} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Context } from '../store/appContext'; // Adjust the import path according to your project structure
 
@@ -46,22 +48,26 @@ export default function SignUp() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Container component="main" maxWidth="xs">
+      <AppBar position="static" sx={{ backgroundColor: '#2db734' }}>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
+            CODEFUSION CAFE
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container component="main" maxWidth="xs" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '80vh' }}>
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
           }}
         >
-          <br></br>
-          <br></br>
-          <Typography component="h1" variant="h4" sx={{ mt: 1, textAlign: 'left' }}>
-                        Sign up
+          <Typography component="h1" variant="h4" sx={{ mt: 1 }}>
+            Sign up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
                   required
@@ -94,7 +100,7 @@ export default function SignUp() {
                   autoComplete="family-name"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="current-password"
                   name="password"
@@ -105,7 +111,7 @@ export default function SignUp() {
                   type="password"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
