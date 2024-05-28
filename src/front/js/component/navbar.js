@@ -38,29 +38,40 @@ export const Navbar = () => {
   return (
     <AppBar position="fixed" sx={{ top: 0, backgroundColor: '#2db734', zIndex: '9999', padding: '0 40px', width: 'calc(100% + 80px)', left: '-40px' }}>
       <Toolbar>
-      <Link to="/regions" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
+        <Link to="/regions" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
           <CoffeeLogo width="85px" height="85px" />
         </Link>
         {!shouldHideEmployeeIdButton && (
-            <Link to="/regions">
-              <Button 
-                variant="contained" 
-                sx={{ backgroundColor: '#006400', color: 'white', marginRight: '10px', '&:hover': { backgroundColor: '#004d00' } }} // Dark green color
-              >
-                {<ArrowBack />}
-              </Button>
-            </Link>
-          )}
-          {!shouldHideEmployeeIdButton && (
-            <Link to="/transactions">
-              <Button 
-                variant="contained" 
-                sx={{ backgroundColor: '#006400', color: 'white', '&:hover': { backgroundColor: '#004d00' } }} // Dark green color
-              >
-                {store.user.username ? `${store.user.username}` : 'EMPLOYEE ID'}
-              </Button>
-            </Link>
-          )}
+          <Link to="/regions">
+            <Button 
+              variant="contained" 
+              sx={{ 
+                backgroundColor: '#2db734', 
+                color: 'white', 
+                marginRight: '10px', 
+                border: '2px solid #004d00', // Dark green border
+                '&:hover': { backgroundColor: '#1e7a29', border: '2px solid #004d00' } // Matching navbar color
+              }}
+            >
+              {<ArrowBack />}
+            </Button>
+          </Link>
+        )}
+        {!shouldHideEmployeeIdButton && (
+          <Link to="/transactions">
+            <Button 
+              variant="contained" 
+              sx={{ 
+                backgroundColor: '#2db734', 
+                color: 'white', 
+                border: '2px solid #004d00', // Dark green border
+                '&:hover': { backgroundColor: '#1e7a29', border: '2px solid #004d00' } // Matching navbar color
+              }}
+            >
+              {store.user.username ? `${store.user.username}` : 'EMPLOYEE ID'}
+            </Button>
+          </Link>
+        )}
         <Typography 
           variant="h4"  // Make the text bigger
           component="div" 
