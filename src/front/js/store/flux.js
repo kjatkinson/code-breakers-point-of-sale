@@ -97,8 +97,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           return data;
         } catch (error) {
           console.error(error);
+          throw error; // Rethrow the error to propagate it
         }
       },
+      
       signOut: () => {
         const defaultUser = {
           isSignedIn: false,
