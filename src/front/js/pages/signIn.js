@@ -23,20 +23,21 @@ const CoffeeLogo = ({ width, height }) => {
 
 function SignIn() {
   const [open, setOpen] = useState(false); // State to control Snackbar open/close
+  const [employeeId, setEmployeeId] = useState('');
+  const [password, setPassword] = useState('');
   const { actions } = useContext(Context);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const employeeId = data.get('employee-id');
-    const password = data.get('password');
     try {
       await actions.login(employeeId, password);
       navigate('/regions');
     } catch (error) {
       console.error("Login failed:", error);
       setOpen(true);
+      setEmployeeId('');
+      setPassword('');
     }
   };
 
@@ -82,6 +83,8 @@ function SignIn() {
               name="employee-id"
               autoComplete="employee-id"
               autoFocus
+              value={employeeId}
+              onChange={(e) => setEmployeeId(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -92,6 +95,8 @@ function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Button
               type="submit"
