@@ -1,4 +1,12 @@
  A Point of Sale System for a fusion restaurant.
+Technologies used :
+React application
+Flask 
+Material UI for components
+Created custom react components
+Fake Coffee API 
+Custom Database
+
 Step 1: Set Up the Backend (Flask API)
 Clone the Repository (if not already done):
 
